@@ -1,0 +1,10 @@
+# Large media files that exceed GitHub's 100MB limit
+Sources/Video/
+Sources/Maps/*.tif
+
+# Claude Code local settings
+.claude/
+
+# OS junk
+.DS_Store
+Thumbs.db
