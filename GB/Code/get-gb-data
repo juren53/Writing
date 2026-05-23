@@ -1,0 +1,43 @@
+#!/usr/bin/bash
+####################################################################################
+#                          get-gb-data
+#  a bash script that manages the downloading of GB data calling Python programs
+#  gasbuddy_data-p7.csv & gasbuddy_data-p8.csv that scraps GB data and dlx.py formats
+#  and renames data file embedding date and time into the file name.
+#
+# Sun 08 Sep 2024 05:46:08 PM CDT created - fashioned after old static file downloads v0.1
+# Mon 16 Sep 2024 05:45:42 PM CDT added wordcount (wc) report of data file to console v0.2
+# Sun 18 May 2025                   updated paths to be relative for cross-platform use
+#####################################################################################
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+TMP_DIR="$PROJECT_DIR/tmp"
+DATA_DIR="$PROJECT_DIR/Data"
+
+mkdir -p "$TMP_DIR"
+cd "$TMP_DIR"
+
+echo $(date)
+python3 "$SCRIPT_DIR/get-gb-data-p7.py"
+echo $(date)
+python3 "$SCRIPT_DIR/get-gb-data-p8.py"
+
+cat gasbuddy_data-p7.csv gasbuddy_data-p8.csv > x.csv
+
+python3 "$SCRIPT_DIR/dlx.py"
+
+file=$(ls -r GB*.csv | head -1)
+cp "$file" "$DATA_DIR/"
+echo $(date)
+
+cat "$file" | wc
+
+cd "$DATA_DIR"
+last=$(ls -t "$DATA_DIR" | head -n 1)
+second=$(ls -t "$DATA_DIR" | tail -n +2 | head -n 1)
+
+diff "$last" "$second" | wc
+
+echo $last
+echo $second
