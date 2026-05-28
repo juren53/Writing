@@ -1,0 +1,280 @@
+# Packing items master list
+# tags: road, air, international (combine for multi-modal trips)
+# required: true = always include; false = consider based on trip
+# condition: optional string describing when to include (shown in checklist)
+
+categories:
+
+  - name: Documents & ID
+    items:
+      - name: Driver's license
+        tags: [road, air, international]
+        required: true
+      - name: Passport
+        tags: [international]
+        required: true
+      - name: Passport photocopy (stored separately)
+        tags: [international]
+        required: true
+      - name: Visa (if required)
+        tags: [international]
+        required: false
+        condition: check destination requirements
+      - name: Travel insurance documents
+        tags: [air, international]
+        required: false
+        condition: if purchased
+      - name: Flight confirmations / boarding passes
+        tags: [air]
+        required: true
+      - name: Hotel / accommodation confirmations
+        tags: [road, air, international]
+        required: true
+      - name: Car rental confirmation
+        tags: [road]
+        required: false
+        condition: if renting
+      - name: International driving permit
+        tags: [international]
+        required: false
+        condition: if driving abroad
+
+  - name: Money & Cards
+    items:
+      - name: Credit card(s)
+        tags: [road, air, international]
+        required: true
+      - name: Debit / ATM card
+        tags: [road, air, international]
+        required: true
+      - name: Cash (local currency)
+        tags: [road, air, international]
+        required: true
+      - name: Foreign currency
+        tags: [international]
+        required: true
+        condition: exchange before departure or at arrival airport
+      - name: Emergency cash (hidden)
+        tags: [international]
+        required: false
+
+  - name: Electronics
+    items:
+      - name: Phone + charger
+        tags: [road, air, international]
+        required: true
+      - name: Laptop / tablet + charger
+        tags: [road, air, international]
+        required: false
+      - name: Universal power adapter
+        tags: [international]
+        required: true
+      - name: Portable battery bank
+        tags: [road, air, international]
+        required: false
+      - name: Headphones / earbuds
+        tags: [air]
+        required: false
+      - name: Camera + charger + memory cards
+        tags: [road, air, international]
+        required: false
+      - name: Car phone mount
+        tags: [road]
+        required: false
+      - name: GPS / maps downloaded offline
+        tags: [road, international]
+        required: false
+
+  - name: Clothing
+    items:
+      - name: Underwear (1 per day + 1 spare)
+        tags: [road, air, international]
+        required: true
+      - name: Socks (1 per day + 1 spare)
+        tags: [road, air, international]
+        required: true
+      - name: T-shirts / shirts
+        tags: [road, air, international]
+        required: true
+      - name: Pants / jeans
+        tags: [road, air, international]
+        required: true
+      - name: Shorts
+        tags: [road, air, international]
+        required: false
+        condition: warm weather
+      - name: Jacket / fleece
+        tags: [road, air, international]
+        required: false
+        condition: cooler weather or A/C
+      - name: Rain jacket
+        tags: [road, air, international]
+        required: false
+        condition: rainy season or mountains
+      - name: Dress clothes
+        tags: [air, international]
+        required: false
+        condition: business or formal events
+      - name: Swimsuit
+        tags: [road, air, international]
+        required: false
+        condition: beach, pool, or hot springs
+      - name: Sleepwear
+        tags: [road, air, international]
+        required: true
+      - name: Belt
+        tags: [road, air, international]
+        required: false
+      - name: Comfortable walking shoes
+        tags: [road, air, international]
+        required: true
+      - name: Dress shoes / sandals
+        tags: [air, international]
+        required: false
+        condition: if needed for activities
+      - name: Flip-flops (for shower/beach)
+        tags: [road, air, international]
+        required: false
+
+  - name: Toiletries
+    items:
+      - name: Toothbrush + toothpaste
+        tags: [road, air, international]
+        required: true
+      - name: Deodorant
+        tags: [road, air, international]
+        required: true
+      - name: Shampoo / conditioner
+        tags: [road, air, international]
+        required: true
+      - name: Soap / body wash
+        tags: [road, air, international]
+        required: true
+      - name: Razor + shaving supplies
+        tags: [road, air, international]
+        required: false
+      - name: Sunscreen
+        tags: [road, air, international]
+        required: false
+        condition: sunny destination
+      - name: Lip balm with SPF
+        tags: [road, air, international]
+        required: false
+      - name: Insect repellent
+        tags: [road, international]
+        required: false
+        condition: tropical or outdoor-heavy trip
+      - name: Hand sanitizer
+        tags: [road, air, international]
+        required: true
+      - name: Travel-size toiletry bottles (TSA-compliant)
+        tags: [air, international]
+        required: true
+        condition: carry-on only
+
+  - name: Health & Medical
+    items:
+      - name: Prescription medications (+ extra supply)
+        tags: [road, air, international]
+        required: true
+        condition: if applicable
+      - name: Over-the-counter pain reliever
+        tags: [road, air, international]
+        required: true
+      - name: Antihistamine / allergy meds
+        tags: [road, air, international]
+        required: false
+      - name: Stomach / digestive meds
+        tags: [international]
+        required: true
+        condition: especially in countries with different food/water
+      - name: Motion sickness meds
+        tags: [road, air]
+        required: false
+        condition: if prone to motion sickness
+      - name: Bandages / first aid kit
+        tags: [road, air, international]
+        required: false
+      - name: Vaccination records / health card
+        tags: [international]
+        required: false
+        condition: required for some destinations
+      - name: COVID/health documentation
+        tags: [international]
+        required: false
+        condition: check destination requirements
+
+  - name: Road Trip Essentials
+    items:
+      - name: Road atlas / printed map backup
+        tags: [road]
+        required: false
+      - name: Roadside emergency kit
+        tags: [road]
+        required: true
+      - name: Jumper cables
+        tags: [road]
+        required: false
+      - name: Spare tire (check pressure)
+        tags: [road]
+        required: true
+      - name: Water (1 gallon per person)
+        tags: [road]
+        required: true
+      - name: Snacks for the road
+        tags: [road]
+        required: false
+      - name: Cooler / ice
+        tags: [road]
+        required: false
+      - name: Car trash bag
+        tags: [road]
+        required: false
+      - name: Sunglasses
+        tags: [road, air, international]
+        required: false
+
+  - name: Air Travel Essentials
+    items:
+      - name: Neck pillow
+        tags: [air]
+        required: false
+        condition: long flights
+      - name: Eye mask
+        tags: [air]
+        required: false
+        condition: overnight or long flights
+      - name: Compression socks
+        tags: [air]
+        required: false
+        condition: flights over 4 hours
+      - name: Snacks for flight
+        tags: [air]
+        required: false
+      - name: Reusable water bottle (empty for security)
+        tags: [air, international]
+        required: false
+      - name: TSA PreCheck / Global Entry card
+        tags: [air, international]
+        required: false
+        condition: if enrolled
+
+  - name: International Essentials
+    items:
+      - name: Translation app downloaded offline
+        tags: [international]
+        required: false
+        condition: non-English speaking destination
+      - name: Local SIM card or international phone plan
+        tags: [international]
+        required: true
+      - name: VPN app (installed + configured)
+        tags: [international]
+        required: false
+        condition: countries with internet restrictions
+      - name: Emergency contact card (local language)
+        tags: [international]
+        required: false
+      - name: Embassy contact info
+        tags: [international]
+        required: true
